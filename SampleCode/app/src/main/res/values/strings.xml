@@ -7,4 +7,5 @@
         <item>Angry Dog</item>
         <item>Puppies</item>
     </string-array>
+    <string name="btn_loggin_and_debugging">Logging and Debugging</string>
 </resources>

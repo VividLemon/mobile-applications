@@ -28,6 +28,7 @@ public class SpinnerActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = spinner.getSelectedItem().toString();
                 Toast.makeText(SpinnerActivity.this, selectedItem, Toast.LENGTH_LONG).show();
+                changeImage(selectedItem);
             }
 
             @Override
@@ -35,5 +36,23 @@ public class SpinnerActivity extends AppCompatActivity {
 
             }
         });
+    }
+    public void changeImage(String selected){
+        int resourceId = 0;
+        switch(selected) {
+            case "Happy Dog":
+                resourceId = R.drawable.happy_dog;
+                break;
+            case "Angry Dog":
+                resourceId= R.drawable.angry_dog;
+                break;
+            case "Puppies":
+                resourceId = R.drawable.dog_with_puppies;
+                break;
+            default:
+                Toast.makeText(this, "Invalid image!", Toast.LENGTH_SHORT).show();
+
+        }
+        imageView.setImageResource(resourceId);
     }
 }
