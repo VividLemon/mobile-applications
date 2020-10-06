@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
@@ -21,22 +22,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Button"
-        android:onClick="buttonPressed"/>
+        android:onClick="buttonPressed"
+        android:text="Button" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="65dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Button"
-        android:onClick="buttonPressed"/>
+        android:onClick="buttonPressed"
+        android:text="Button" />
 
     <Button
         android:id="@+id/btnLog"
+        android:layout_width="147dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/btn_loggin_and_debugging"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/btnListener"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/btn_loggin_and_debugging" />
+        android:onClick="buttonPressed"
+        android:text="Listener Activity" />
+
 
 </LinearLayout>
