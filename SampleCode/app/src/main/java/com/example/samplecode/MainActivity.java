@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
                 i = new Intent(this, ListenerActivity.class);
                 startActivity(i);
                 break;
+            case "btnLifecycle":
+                i = new Intent(this, LifecycleActivity.class);
+                startActivity(i);
+                break;
             default:
                 Toast.makeText(this, "Not sure what you clicked on", Toast.LENGTH_LONG).show();
                 break;
