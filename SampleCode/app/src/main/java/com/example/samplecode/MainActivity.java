@@ -54,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
                 i = new Intent(this, LifecycleActivity.class);
                 startActivity(i);
                 break;
+            case "btnIntentSender":
+                i = new Intent(this,intentSenderActivity.class);
+                i.putExtra(intentSenderActivity.EXTRA_SOME_KEY, "HELLO");
+                startActivity(i);
+                break;
             default:
                 Toast.makeText(this, "Not sure what you clicked on", Toast.LENGTH_LONG).show();
                 break;

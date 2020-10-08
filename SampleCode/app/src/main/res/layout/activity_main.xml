@@ -56,5 +56,12 @@
         android:onClick="buttonPressed"
         android:text="Lifecycle" />
 
+    <Button
+        android:id="@+id/btnIntentSender"
+        android:layout_width="match_parent"
+        android:onClick="buttonPressed"
+        android:layout_height="wrap_content"
+        android:text="Intent Sender" />
+
 
 </LinearLayout>
