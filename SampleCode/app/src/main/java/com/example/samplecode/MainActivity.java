@@ -11,6 +11,11 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.example.samplecode.models.Dog;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     Button btnLog;
     public static final String TAG = "MainActivity";
@@ -25,7 +30,15 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "You pressed on btnLog");
             }
         });
+
+        ArrayList<Dog> dogs = Dog.allDogs;
+
+        for(Dog d : dogs){
+            Log.d(TAG, d.toString());
+        }
     }
+
+
 
     public void buttonPressed(View view){
         //Toast.makeText(this, "You clicked me", Toast.LENGTH_LONG).show();
@@ -63,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Not sure what you clicked on", Toast.LENGTH_LONG).show();
                 break;
         }
-
 
 
     }
