@@ -12,12 +12,16 @@ import com.example.samplecode.models.Task;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.FileHandler;
 
 public class FileIOActivity extends AppCompatActivity {
 
     public static final String TAG = "FileIOActivity";
+    private static final String TASKS_FILE = "tasks.csv";
 
+    ArrayList<Task> tasksList = new ArrayList<>();
 
 
     private String convertTaskToCSV(Task task){
@@ -70,5 +74,32 @@ public class FileIOActivity extends AppCompatActivity {
         Log.d(TAG, "Task CSV: " + csv);
         Task newTask = convertCSVToTask(csv);
         Log.d(TAG, "CSV to Task: " + newTask.toString());
+
+        tasksList.add(new Task(1, "Homework", new Date(), false));
+        tasksList.add(new Task(2, "Launcdry", new Date(), false));
+        tasksList.add(new Task(3, "Cleaning", new Date(), false));
+
+        String csvData = "";
+        for (Task task:
+             tasksList) {
+            csvData += convertTaskToCSV(task) + "\n";
+        }
+        FileHelper.writeToFile(TASKS_FILE,csvData, this);
+        //Log.d(TAG, csvData);
+
+        csvData = FileHelper.readFromFile(TASKS_FILE, this);
+        ArrayList<Task> newTasksList = new ArrayList<>();
+        String[] split = csvData.split("\n");
+        for (String nextLine :
+                split) {
+            Task task = convertCSVToTask(nextLine);
+            if(task != null){
+                newTasksList.add(task);
+            }
+        }
+        Log.d(TAG, newTasksList.toString());
+
+
+
     }
 }

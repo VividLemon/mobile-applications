@@ -72,6 +72,11 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra(intentSenderActivity.EXTRA_SOME_KEY, "HELLO");
                 startActivity(i);
                 break;
+
+            case "btnFileIO":
+                i = new Intent(this, FileIOActivity.class);
+                startActivity(i);
+                break;
             default:
                 Toast.makeText(this, "Not sure what you clicked on", Toast.LENGTH_LONG).show();
                 break;

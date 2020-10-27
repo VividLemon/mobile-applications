@@ -8,9 +8,12 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_weight="1"
+        android:text="Something should go here"
+        android:textAlignment="center"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,7 +22,7 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="buttonPressed"
@@ -27,7 +30,7 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="65dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="buttonPressed"
@@ -35,7 +38,7 @@
 
     <Button
         android:id="@+id/btnLog"
-        android:layout_width="147dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/btn_loggin_and_debugging"
@@ -43,7 +46,7 @@
 
     <Button
         android:id="@+id/btnListener"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="buttonPressed"
@@ -53,15 +56,25 @@
         android:id="@+id/btnLifecycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:onClick="buttonPressed"
         android:text="Lifecycle" />
 
     <Button
         android:id="@+id/btnIntentSender"
         android:layout_width="match_parent"
-        android:onClick="buttonPressed"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="buttonPressed"
         android:text="Intent Sender" />
+
+    <Button
+        android:id="@+id/btnFileIO"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="buttonPressed"
+        android:text="FileIO" />
 
 
 </LinearLayout>
