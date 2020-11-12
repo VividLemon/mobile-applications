@@ -7,13 +7,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.samplecode.models.Dog;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -75,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
 
             case "btnFileIO":
                 i = new Intent(this, FileIOActivity.class);
+                startActivity(i);
+                break;
+            case "btnAdapterActivity":
+                i = new Intent(this, AdapterActivity.class);
                 startActivity(i);
                 break;
             default:
