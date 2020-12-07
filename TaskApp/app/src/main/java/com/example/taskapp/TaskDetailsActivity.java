@@ -2,7 +2,6 @@ package com.example.taskapp;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,10 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.DatePicker;
 import android.widget.EditText;
 
-import com.example.taskapp.fileio.CSVTaskDataAccess;
 import com.example.taskapp.models.Task;
 
 import java.text.SimpleDateFormat;
@@ -26,7 +23,7 @@ public class TaskDetailsActivity extends AppCompatActivity {
     public static final String TAG = "TaskDetailsActivity";
     public static final String EXTRA_TASK_ID = "taskId";
     Task task;
-    Taskable tda;
+    Taskable cda;
     SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy", Locale.US);
     EditText txtDescription;
     EditText txtDueDate;
@@ -46,13 +43,13 @@ public class TaskDetailsActivity extends AppCompatActivity {
         btnSave = findViewById(R.id.btnSave);
 
 
-        //tda = new CSVTaskDataAccess(this);
-        tda = new SQLTaskDataAccess(this);
+        //tda = new CSVTaskDataAccess(this); refactored to CDA
+        cda = new SQLTaskDataAccess(this);
         Intent i = getIntent();
         long id = i.getLongExtra(EXTRA_TASK_ID, 0);
         Log.d(TAG, "This: " + id);
         if(id > 0){
-            task = tda.getTaskById(id);
+            task = cda.getTaskById(id);
             Log.d(TAG,task.toString());
             putDataIntoUI();
         }else{
@@ -66,9 +63,9 @@ public class TaskDetailsActivity extends AppCompatActivity {
                     getdataFromUI();
                     Log.d(TAG, "Passed validation");
                     if(task.getId() > 0){
-                        tda.updateTask(task);
+                        cda.updateTask(task);
                     }else{
-                        tda.insertTask(task);
+                        cda.insertTask(task);
                     }
 
                     Intent i = new Intent(TaskDetailsActivity.this, TaskListActivity.class);
@@ -157,7 +154,7 @@ public class TaskDetailsActivity extends AppCompatActivity {
         dialog.setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                tda.deleteTask(task);
+                cda.deleteTask(task);
                 Intent i = new Intent(TaskDetailsActivity.this, TaskListActivity.class);
                 startActivity(i);
                 }
